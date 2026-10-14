@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            text-align: center;
+            padding: 70px 20px;
+        }
+        .card {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #0001;
+        }
+        h1 { color: #174ea6; }
+        .score { font-size: 32px; font-weight: bold; }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 22px;
+            border-radius: 8px;
+            background: #174ea6;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Quiz Completed!</h1>
+        <p>Your score is:</p>
+        <div class="score">{{ score }} / {{ total }}</div>
+
+        {% if score == total %}
+            <p>Excellent! All answers are correct.</p>
+        {% elif score >= total / 2 %}
+            <p>Good job! Keep practising.</p>
+        {% else %}
+            <p>Keep learning and try again.</p>
+        {% endif %}
+
+        <a href="/quiz">Try Again</a>
+        <a href="/">Home</a>
+    </div>
+</body>
+</html>
